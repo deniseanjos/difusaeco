@@ -1,0 +1,79 @@
+.title {
+  font-family: Amatic SC;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 4rem;
+  padding-top: 10px;
+  color: #540388;
+}
+
+.texto-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  text-align: center;
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: 0%;
+  background: #27AE60;
+  border-radius: 6px;
+  }
+
+  .btn-container {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding-bottom: 15px;
+  }
+
+  .about-project-container{
+    position: relative;
+    z-index: 5;
+  }
+
+  .teste {
+    background-image: url("../../../assets/img/circle-group.svg");
+    background-repeat: no-repeat;
+    background-size: 80%;
+    background-position: center;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0.4;
+  }
+
+  .teste::after  {
+    padding-top: 5rem;
+    position: absolute;
+    opacity: 0.6;
+    z-index: -1;
+  }
+
+
+/* .img-section2 {
+    background-image: url("../../../assets/img/folhas.svg");
+    background-position: center;
+    background-size: 50%;
+    background-repeat: no-repeat;
+<<<<<<< HEAD
+} */
+
+
+.description{
+  font-size: larger;
+}
+
+.btnHome:hover {
+  opacity: 90%;
+}
+
+.img-home {
+  width: 90%;
+}

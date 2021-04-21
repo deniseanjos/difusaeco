@@ -1,0 +1,28 @@
+<div class="card-deck h-100">
+  <div class="card shadow h-100 mb-3">
+
+    <!-- Avatar do Github -->
+    <div class="p-3">
+      <img class="card-img" src="{{groupMember?.github?.avatar_url}}" alt="Imagem de capa do card">
+    </div>
+    <div class="px-3 pb-3 description h-100">
+
+      <!-- Nome -->
+      <div class="member-name mb-2 text-center font-weight-bold">{{groupMember?.github?.name}}</div>
+
+      <!-- Bio -->
+      <div class="bio-container mb-3">
+        <p class="card-text">{{bio}}</p>
+      </div>
+
+      <!-- Redes Sociais-->
+      <div class="redes-sociais-container">
+        <div class="redes-sociais">
+          <a href="{{groupMember?.linkedin_url}}" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="{{groupMember?.github?.html_url}}" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,58 @@
+.logo-header{
+  width: 10rem;
+  padding-right: 2rem;
+}
+
+.btn {
+  text-align: center;
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: 0%;
+  background: #27AE60;
+  border-radius: 6px;
+  }
+
+  .btnMore {
+    text-align: center;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    font-weight: bold;
+  }
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.cart-icon-container{
+  position: relative;
+}
+
+.cart-quantity{
+  position: absolute;
+  padding: 1px 5px;
+  background: #27AE60;
+  border-radius: 100%;
+  font-size: 15px;
+  color: white;
+  right: 8px;
+  bottom: 3px;
+}
+
+.cart-icon{
+  color: #540388;
+  font-size: 1.3rem !important;
+}
+
+.nav-item {
+  margin: 0 10px;
+}
+
+.usuario-logado-text {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  padding-right: 1rem;
+}

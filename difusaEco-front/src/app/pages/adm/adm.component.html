@@ -1,0 +1,479 @@
+<div class="container">
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="text-center title">Painel administrador</div>
+		</div>
+	</div>
+
+
+	<div class="row my-5 mb-5">
+		<div class="col-md-12">
+			<ul class="nav nav-tabs " id="myTab" role="tablist">
+
+				<li class="nav-item">
+					<a class="nav-link active text-black-50 font-weight-bold" id="home-tab" data-toggle="tab"
+						href="#home" role="tab" aria-controls="home" aria-selected="true">Produtos</a>
+				</li>
+
+				<li class="nav-item">
+					<a class="nav-link text-black-50 ml-4 font-weight-bold" id="profile-tab" data-toggle="tab"
+						href="#perfil" role="tab" aria-controls="profile" aria-selected="false">Categorias</a>
+				</li>
+
+				<li class="nav-item">
+					<a class="nav-link text-black-50 ml-4 font-weight-bold" id="contact-tab" data-toggle="tab"
+						href="#contato" role="tab" aria-controls="contact" aria-selected="false">Usuarios</a>
+				</li>
+
+			</ul>
+			<div class="tab-content bg-white p-3 mb-5" id="myTabContent" style="overflow-x: scroll;">
+				<div class="tab-pane fade show active th" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+					<div class="text-center mt-2 mb-3 w-100">
+						<button type="button" class="btn" data-toggle="modal" data-target="#ModalProduto">
+							Novo produto
+						</button>
+					</div>
+
+					<div class="row d-flex justify-content-center mt-5 mb-5">
+						<div class="col-md-4">
+							<div class="form-group">
+								<input type="text" class="form-control" id="produto"
+									placeholder="Pesquise por nome de produto" [(ngModel)]="nomeProduto"
+									(keyup)='findProdutoByNome()'>
+							</div>
+						</div>
+					</div>
+
+					<table class="table table-sm th2">
+
+						<thead>
+							<tr class="text-center">
+								<th scope="col">#</th>
+								<th scope="col">Nome</th>
+								<th scope="col">Categoria</th>
+								<th scope="col">Quantidade</th>
+								<th scope="col">Preço</th>
+								<th scope="col">Imagem</th>
+								<th scope="col">Descrição</th>
+								<th scope="col">Ação</th>
+							</tr>
+						</thead>
+
+						<tbody>
+							<tr class="text-center" *ngFor="let item of listaProdutos">
+								<td>{{item.id}}</td>
+								<td>{{item.nomeProduto}}</td>
+								<td>{{item.categoria.nomeCategoria}}</td>
+								<td>{{item.quantidade}} un.</td>
+								<td>R$ {{item.preco}}</td>
+								<td>{{item.imagem}}</td>
+								<td>{{item.descricao}}</td>
+								<td>
+									<div class="d-flex justify-content-center align-items-center">
+										<div class="edit mr-3 action-icon" (click)="selecionarProduto(item.id)"
+											data-toggle="modal" data-target="#ModalEditarProduto">
+											<i class="fas fa-edit"></i>
+										</div>
+										<div class="erase action-icon" (click)="apagarProduto(item.id)">
+											<i class="fas fa-trash-alt"></i>
+										</div>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<div class="tab-pane fade th mb-5" id="perfil" role="tabpanel" aria-labelledby="profile-tab">
+
+					<button type="button" class="  btn btn-light text-black-50 mt-50 mt-3 mb-3" data-toggle="modal"
+						data-target="#ModalCategoria">
+						Nova categoria
+					</button>
+
+					<div class="row d-flex justify-content-center mt-5 mb-5">
+						<div class="form-group">
+							<input type="text" class="form-control" id="categoria"
+								placeholder="Pesquise por nome da categoria" [(ngModel)]="nomeCategoria"
+								(keyup)='findCategoriaByNome()'>
+						</div>
+					</div>
+
+					<table class="table table-sm">
+						<thead>
+							<tr class="text-center">
+								<th scope="col">#</th>
+								<th scope="col">Nome da Categoria</th>
+								<th scope="col">Ação</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="text-center" *ngFor="let item of listaCategorias">
+								<td>{{item.id}}</td>
+								<td>{{item.nomeCategoria}}</td>
+								<td>
+									<div class="d-flex justify-content-center align-items-center">
+										<div class="edit mr-3 action-icon" (click)='selecionarCategoria(item.id)'
+											data-toggle="modal" data-target="#ModalEdicaoCategoria">
+											<i class="fas fa-edit"></i>
+										</div>
+										<div class="erase action-icon" (click)='apagarCategoria(item.id)'>
+											<i class="fas fa-trash-alt"></i>
+										</div>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<div class="tab-pane fade th" id="contato" role="tabpanel" aria-labelledby="contact-tab">
+					<button type="button" class="  btn btn-light text-black-50 mb-3 mt-3" aling="center"
+						data-toggle="modal" data-target="#ModalUsuario">
+						Novo usuário
+					</button>
+					<table class="table th2 table-sm">
+						<thead>
+							<tr class="text-center">
+								<th scope="col">#</th>
+								<th scope="col">Nome</th>
+								<th scope="col">Email</th>
+								<!-- <th scope="col">Senha</th> -->
+								<th scope="col">Tipo Usuário</th>
+								<th scope="col">Ação</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="text-center" *ngFor="let item of listaUsuarios">
+								<td>{{item.id}}</td>
+								<td>{{item.nomeUsuario}}</td>
+								<td>{{item.email}}</td>
+								<!--<td>{{item.senha}}</td>-->
+								<td>{{item.tipoUsuario}}</td>
+								<td>
+									<div class="d-flex justify-content-center align-items-center">
+										<div class="edit mr-3 action-icon" (click)="selecionarUsuario(item.id)"
+											data-toggle="modal" data-target="#ModalEditarUsuario">
+											<i class="fas fa-edit"></i>
+										</div>
+										<div class="erase action-icon" (click)="apagarUsuario(item.id)">
+											<i class="fas fa-trash-alt"></i>
+										</div>
+									</div>
+								</td>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+
+		<!-- Modal CADASTRAR produto-->
+		<div class="modal fade " id="ModalProduto" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado"
+			aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="TituloModalCentralizado">Cadastre um produto</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<form>
+							<div class="form-group">
+								<label for="formGroupExampleInput">Nome do Produto</label>
+								<input [(ngModel)]="produto.nomeProduto" type="text" class="form-control"
+									name="nomeProduto" id="nomeProduto" placeholder="Digite o Nome"
+									(keyup)="validateTextLength($event,2)" required>
+							</div>
+							<div class="form-group">
+								<label for="formGroupExampleInput2">Categoria</label>
+								<select [(ngModel)]="idCategoria" (change)='findByIdCategoria()' name="produtoCategoria"
+									id="produtoCategoria" class="form-control">
+									<option *ngFor="let item of listaCategorias" [value]="item.id">
+										{{item.nomeCategoria}}
+									</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label for="formGroupExampleInput3">Quantidade</label>
+								<input [(ngModel)]="produto.quantidade" type="number" min="0" class="form-control"
+									name="quantidadeProduto" id="quantidadeProduto" placeholder="Digite a quantidade">
+							</div>
+							<div class="form-group">
+								<label for="formGroupExampleInput4">Preço</label>
+								<input [(ngModel)]="produto.preco" type="text" class="form-control" name="precoProduto"
+									id="precoProduto" placeholder="Digite o preço" mask="separator.2 "
+									thousandSeparator=".">
+							</div>
+							<div class="form-group">
+								<label for="formGroupExampleInput5">Imagem</label>
+								<input [(ngModel)]="produto.imagem" type="text" class="form-control"
+									name="imagemProduto" id="imagemProduto" placeholder="Imagem inicial">
+							</div>
+							<div class="form-group">
+								<label for="exampleFormControlTextarea1">Descrição do produto</label>
+								<textarea [(ngModel)]="produto.descricao" class="form-control" name="textoProduto"
+									id="textoProduto" rows="3" (keyup)="validateTextLength($event,10)"
+									required></textarea>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button (click)='cancelProduto()' type="button" class="btn btn-danger"
+							data-dismiss="modal">Cancelar
+						</button>
+						<button (click)="cadastrarProduto()" type="button" class="btn btn-success"
+							data-dismiss="modal">Cadastrar produto
+						</button>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Modal EDITAR produto-->
+		<div class="modal fade" id="ModalEditarProduto" tabindex="-1" role="dialog"
+			aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="TituloModalCentralizado">Edite um produto</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<form>
+							<div class="form-group">
+								<label for="formGroupExampleInput">Nome do Produto</label>
+								<input [(ngModel)]="produtoSelecionado.nomeProduto" type="text" class="form-control"
+									name="nomeEditarProduto" id="nomeEditarProduto" placeholder="Digite o Nome"
+									(keyup)="validateTextLength($event,2)">
+							</div>
+							<div class="form-group">
+								<label for="formGroupExampleInput2">Categoria</label>
+								<select [(ngModel)]="idCategoria" (change)='findByIdCategoria()'
+									name="produtoEditarCategoria" id="produtoEditarCategoria" class="form-control">
+									<option *ngFor="let item of listaCategorias" value="{{item.id}}">
+										{{item.nomeCategoria}}
+									</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label for="formGroupExampleInput3">Quantidade</label>
+								<input [(ngModel)]="produtoSelecionado.quantidade" type="text" class="form-control"
+									name="editarQuantidade" id="editarQuantidade" placeholder="Digite a quantidade">
+							</div>
+							<div class="form-group">
+								<label for="formGroupExampleInput4">Preço</label>
+								<input [(ngModel)]="produtoSelecionado.preco" type="text" class="form-control"
+									name="editarPreco" id="editarPreco" placeholder="Digite o preço" mask="separator.2 "
+									thousandSeparator=".">
+							</div>
+							<div class="form-group">
+								<label for="formGroupExampleInput5">Imagem</label>
+								<input [(ngModel)]="produtoSelecionado.imagem" type="text" class="form-control"
+									name="editarImagem" id="editarImagem" placeholder="Imagem inicial">
+							</div>
+							<div class="form-group">
+								<label for="exampleFormControlTextarea1">Descrição do produto</label>
+								<textarea [(ngModel)]="produtoSelecionado.descricao" class="form-control"
+									name="editarDescricao" id="editarDescricao" rows="3"
+									(keyup)="validateTextLength($event,10)"></textarea>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button (click)='cancelProduto()' type="button" class="btn btn-danger"
+							data-dismiss="modal">Cancelar</button>
+						<button (click)="editarProduto()" type="button" class="btn btn-success"
+							data-dismiss="modal">Editar produto</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<!-- Modal CADASTRAR categoria -->
+		<div class="modal fade" id="ModalCategoria" tabindex="-1" role="dialog"
+			aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="TituloModalCentralizado">Cadastre uma categoria</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<form>
+							<div class="form-group">
+								<label for="formGroupExampleInput">Nome da Categoria</label>
+								<input [(ngModel)]="categoria.nomeCategoria" type="text" name="nomeCategoria"
+									class="form-control" id="nomeCategoria" placeholder="Digite a categoria"
+									(keyup)="validateTextLength($event,2)">
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button (click)='cancelCategoria() ' type="button" class="btn btn-danger"
+							data-dismiss="modal">Cancelar</button>
+						<button (click)='cadastrarCategoria()' type="button" data-dismiss="modal"
+							class="btn btn-success">Cadastrar Categoria</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Modal EDITAR Categoria -->
+		<div class="modal fade" id="ModalEdicaoCategoria" tabindex="-1" role="dialog"
+			aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="ModalEdicaoCategoria">Editar Categoria</h5>
+						<button type="button" class="close" id="fecharEditarCategoria" data-dismiss="modal"
+							aria-label="Fechar">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<form>
+							<div class="form-group">
+								<label for="formGroupExampleInput">Nome da Categoria</label>
+								<input [(ngModel)]="categoriaSelecionada.nomeCategoria" type="text"
+									name="nomeCategoriaSelecionada" class="form-control" id="nomeCategoriaSelecionada"
+									placeholder="Digite a categoria" (keyup)="validateTextLength($event,2)">
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button (click)='cancelCategoria()' type="button" class="btn btn-danger"
+							data-dismiss="modal">Cancelar</button>
+						<button (click)='editarCategoria()' type="button" data-dismiss="modal"
+							class="btn btn-success">Editar Categoria</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Modal CADASTRAR usuario -->
+		<div class="modal fade" id="ModalUsuario" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado"
+			aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="TituloModalCentralizado">Cadastre um usuário</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<form>
+							<div class="form-group">
+								<label for="formGroupExampleInput">Nome do Usuario</label>
+								<input [(ngModel)]="usuario.nomeUsuario" type="text" class="form-control"
+									name="nomeUsuario" id="nomeUsuario" placeholder="Digite o Nome"
+									(keyup)="validateTextLength($event,3)">
+							</div>
+							<div class="form-group">
+								<label for="formGroupExampleInput2">Email</label>
+								<input [(ngModel)]="usuario.email" type="email" class="form-control" name="email"
+									id="email" placeholder="Digite o email">
+							</div>
+							<div class="form-group">
+								<label for="formGroupExampleInput3">Senha</label>
+								<input (input)='confirmeSenha($event)' type="password" class="form-control" name="senha"
+									id="senha" placeholder="Digite a senha">
+							</div>
+							<div class="form-group">
+								<label for="formGroupExampleInput4">Confirmar Senha</label>
+								<input [(ngModel)]="usuario.senha" type="password" class="form-control"
+									name="confirmarSenha" id="confirmarSenha" placeholder="Confirme a senha">
+							</div>
+							<div class="form-group">
+								<label for="formGroupExampleInput5">Tipo Usuario</label>
+								<select [(ngModel)]="usuario.tipoUsuario" name="editarTipoUsuario" id="editarUsuario"
+									class="form-control">
+									<option disabled selected>Selecione o tipo de usuário</option>
+									<option value="adm">
+										Administrador
+									</option>
+									<option value="normal">
+										Normal
+									</option>
+								</select>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button (click)='cancelUsuario()' type="button" class="btn btn-danger"
+							data-dismiss="modal">Cancelar</button>
+						<button (click)='cadastrarUsuario()' type="button" class="btn btn-success"
+							data-dismiss="modal">Cadastrar Usuario</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Modal EDITAR usuario -->
+		<div class="modal fade" id="ModalEditarUsuario" tabindex="-1" role="dialog" aria-labelledby="TituloModalUsuario"
+			aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="TituloModalUsuario">Edite um usuário</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<form>
+							<div class="form-group">
+								<label for="formGroupExampleInput">Nome do Usuario</label>
+								<input [(ngModel)]="usuarioSelecionado.nomeUsuario" type="text" class="form-control"
+									name="nomeUsuarioEditar" id="nomeUsuarioEditar" placeholder="Digite o Nome"
+									(keyup)="validateTextLength($event,3)">
+							</div>
+							<div class="form-group">
+								<label for="formGroupExampleInput2">Email</label>
+								<input [(ngModel)]="usuarioSelecionado.email" type="email" class="form-control"
+									name="emailEditar" id="emailEditar" placeholder="Digite o email">
+							</div>
+							<!--<div class="form-group">
+								<label for="formGroupExampleInput3">Senha</label>
+								<input (input)='confirmeSenha($event)' type="password" class="form-control"
+									name="senhaEditar" id="senhaEditar" placeholder="Digite a senha">
+							</div>
+							<div class="form-group">
+								<label for="formGroupExampleInput4">Confirmar Senha</label>
+								<input [(ngModel)]="usuario.senha" type="password" class="form-control"
+									name="confirmarSenhaEditar" id="confirmarSenhaEditar"
+									placeholder="Confirme a senha">
+							</div>-->
+							<label class="mr-2" for="formGroupExampleInput5">Tipo Usuario </label>
+							<select [(ngModel)]="usuarioSelecionado.tipoUsuario" name="editarTipoUsuario"
+								id="editarTipoUsuario" class="form-control">
+								<option disabled selected>Selecione o tipo de usuário</option>
+								<option value="adm">
+									Administrador
+								</option>
+								<option value="normal">
+									Normal
+								</option>
+							</select>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button (click)='cancelUsuario()' type="button" class="btn btn-danger"
+							data-dismiss="modal">Cancelar</button>
+						<button (click)='editarUsuario()' type="button" class="btn btn-success"
+							data-dismiss="modal">Editar Usuario</button>
+					</div>
+				</div>
+			</div>
+		</div>

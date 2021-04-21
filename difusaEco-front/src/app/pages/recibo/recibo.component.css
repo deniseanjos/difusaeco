@@ -1,0 +1,31 @@
+.resumo-compra {
+  margin: auto;
+  padding: 2rem;
+  background-color: #f6f6f6;
+  border-style: solid;
+  border-color: black;
+  border-width: thin;
+}
+
+.preco {
+  display: flexbox;
+  justify-content: end;
+}
+
+
+.btn {
+  text-align: center;
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: 0%;
+  background: #27AE60;
+  border-radius: 6px;
+  }
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding-bottom: 15px;
+}

@@ -1,0 +1,81 @@
+<!-- <div class="mt-5 mb-5" id="receipt">
+  <a
+    name=""
+    style="position: relative; float: right;"
+    id=""
+    class="btn btn-primary"
+    href="javascript:;;"
+    role="button"
+    (click)="downloadReceipt()"
+    ><i class="fa fa-download"></i> Recibo</a
+  > -->
+
+<div class="container p-5">
+  <div class="text-center pb-5 title">Obrigade por comprar conosco!</div>
+  <div class="row">
+    <div
+      class="well col-xs-10 col-sm-10 col-md-6 col-xs-offset-1 col-sm-offset-1 col-md-offset-3 resumo-compra"
+      style="margin: auto;"
+    >
+      <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6">
+          <address>
+            <strong>Difusa Eco Ltda.</strong>
+            <br />
+            São Paulo - SP
+            <br />
+            (11) 6666-6666
+          </address>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 text-right">
+          <p>
+            <em>Data: {{ date | date }}</em>
+          </p>
+          <p>
+            <em>Recibo: #34522677W</em>
+          </p>
+        </div>
+      </div>
+        <div class="text-center mt-2 mb-5">
+          <h4>Detalhes da Compra</h4>
+        </div>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Produto</th>
+              <th class="text-center">Qtd</th>
+              <th class="text-center">Valor</th>
+              <th class="text-center">Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let produto of produtosCarrinho">
+              <td>
+                <h6>
+                  <em>{{ produto.produto.nomeProduto }}</em>
+                </h6>
+              </td>
+
+              <td class="text-center">{{ produto.qtd }}</td>
+              <td class="text-center preco">R$ {{ produto.produto.preco }}</td>
+              <td class="text-center preco">R$ {{ produto.totalProduto }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <div>
+          <div class="text-right pr-4">
+            <h6>
+              <strong><span>Total: </span> R$ {{ precoTotal1 }}</strong>
+            </h6>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class=" btn-container mt-3 d-flex justify-content-center">
+      <button type="button" class="btn " (click)="limpaCarrinho()" routerLink='/home'>Concluir</button>
+    </div>
+
+  </div>
+<!-- </div> -->

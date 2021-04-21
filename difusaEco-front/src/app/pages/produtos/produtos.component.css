@@ -1,0 +1,232 @@
+.card {
+  background: #FFFFFF;
+  border-radius: 20px 0px;
+  width: 320px;
+  height: 470px;
+}
+
+.card-img-top-produtos {
+  width: 180px;
+  height: 180px;
+  border-radius: 15px 0px;
+}
+
+  .green-bar {
+    width: 100%;
+    padding: 1.5rem;
+    background: #27AE60;
+    border-radius: 20px 0px
+  }
+
+  .card-title {
+    height: 80px;
+  }
+  
+  .card-price {
+    height: 25px;
+  }
+
+  .btn-container {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 15px;
+  }
+
+
+  .card-img {
+    /* border: 1px solid #000000; */
+    width: 180px;
+    height: 180px;
+    border-radius: 15px 0px;
+  }
+
+  .card-price{
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 29.7561px;
+    line-height: 41px;
+    letter-spacing: -0.015em;
+    color:#27AE60;
+  }
+
+.border {
+  background: #27AE60;
+  border-radius: 15px;
+}
+
+.tags-top{
+  font-family: Amatic SC;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 40px;
+  line-height: 50px;
+  letter-spacing: -0.015em;
+  color: #FFFFFF;
+}
+
+.tags-botton{
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: -0.015em;
+}
+
+/* 
+.main-products{
+  font-family: Amatic SC;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 40px;
+  line-height: 50px;
+  letter-spacing: -0.015em;
+  font-size: 60px;
+} */
+
+
+
+.card-title{
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 29.7561px;
+  line-height: 41px;
+  letter-spacing: -0.015em;
+  color: #000000;
+}
+
+.card-price{
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 29.7561px;
+  line-height: 41px;
+  letter-spacing: -0.015em;
+  color:#27AE60;
+}
+
+.border-top{
+  width: autopx;
+  height: 50px;
+  background: #27AE60;
+  border-radius: 20px 0px 20px 0px;
+}
+
+.card-body bg-light{
+  border-radius: 20px 0px;
+}
+
+.carousel-item {
+height: 520px;
+}
+
+@media screen and (max-width: 799px) {
+
+  .card-columns {
+      column-count: 1;
+  }
+
+}
+
+@media screen and (min-width: 800px) {
+  .card-columns {
+      column-count: 2;
+  }
+}
+
+@media screen and (min-width: 1205px) {
+  .card-columns {
+      column-count: 3;
+  }
+}
+
+
+.card-img-top-produtos {
+width: 180px;
+height: 180px;
+border-radius: 15px 0px;
+}
+
+.card-produtos {
+border-radius: 17px 0px;
+border: 0;
+width: 330px;
+height: 480px;
+}
+
+.header-card-produtos {
+border-radius: 15px 0px;
+background-color: #27AE60;
+height: 40px;
+}
+
+h1 {
+color: rgba(58, 22, 81, 1);
+}
+
+.btn {
+text-align: center;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+background: #27AE60;
+border-radius: 6px;
+margin-left: 5px;
+}
+
+.btn:hover{
+opacity: 80%;
+}
+
+.btn-container {
+display: flex;
+justify-content: center;
+text-align: center;
+padding-bottom: 15px;
+}
+
+.img-section2 {
+  background-image: url("../../../assets/img/folhas.svg");
+  background-position: center;
+  background-size: 50%;
+  background-repeat: no-repeat;
+}
+
+.btnCart {
+  text-align: center;
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: 0%;
+  background: #27AE60;
+  border-radius: 6px;
+  margin-left: 5px;
+  font-weight: bold;
+}
+
+.btnMore {
+  text-align: center;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  font-weight: bold;
+}
+
+.btn:hover{
+opacity: 80%;
+}
+
+.btn-container {
+display: flex;
+justify-content:space-around;
+text-align: center;
+padding-bottom: 1%;
+}
+
+.img-fluid {
+  height: 305px;
+  width: 535px;
+}

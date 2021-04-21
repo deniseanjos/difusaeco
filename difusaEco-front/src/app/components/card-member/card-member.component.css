@@ -1,0 +1,65 @@
+div {
+  transition: transform 1s;
+}
+.card-img{
+  border-radius: 9px;
+}
+
+.card {
+  background: #3F3D56;
+  color: #ffffff;
+}
+
+.card-title{
+  font-size: 18px;
+}
+
+.card:hover{
+  transform: scale(1.05);
+}
+
+.icone-git {
+  width: 5rem;
+  font-size: 5rem;
+  color: pink;
+}
+
+.redes-sociais {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  font-size: 2rem;
+  color: white;
+}
+
+.redes-sociais a{
+  text-decoration: none;
+  color: white !important;
+}
+
+.description {
+  position: relative;
+}
+
+.redes-sociais-container {
+  position: absolute;
+  bottom: 10%;
+  width: 100%;
+  left: 0;
+}
+
+.bio-container {
+  min-height: 85px;
+  font-size: 12px;
+  text-align: center;
+}
+
+@media screen and (max-width: 1125px){
+  .card {
+    min-height: 306px ;
+  }
+}
+
+.fab:hover {
+opacity: 50%;
+}

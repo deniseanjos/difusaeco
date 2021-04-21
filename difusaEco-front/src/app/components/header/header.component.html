@@ -1,0 +1,93 @@
+<!--NavBar-->
+<div class="container">
+  <nav class="navbar navbar-expand-lg navbar-light bg-transparent d-flex justify-content-between">
+    <a routerLink='/home'>
+      <img class="logo-header" src="../../../assets/img/logo.svg">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado"
+      aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink='/home'>Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink='/produtos'>Produtos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink='/sobre-projeto'>Sobre o Projeto</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink='/adm' *ngIf='authService.usuarioAdm()'>Administrador</a>
+        </li>
+      </ul>
+
+      <div class="d-flex align-items-center">
+        <div class="nav-item">
+          <div class="cart-icon-container pr-4">
+            <a routerLink='/carrinho'>
+              <i class="fas fa-shopping-cart cart-icon">
+                <span class="cart-quantity">
+                  {{qtdCarrinho}}
+                </span>
+              </i></a>
+          </div>
+        </div>
+
+        <div class="btn-container" *ngIf='!authService.getAuthData()'>
+          <div type="button" class="btn btn-success" data-toggle="modal" data-target="#modalLogin">
+            Login
+          </div>
+        </div>
+
+        <div class="usuario-logado-container d-flex" *ngIf='authService.getAuthData()'>
+        <div class="btn-container" ></div>
+          <div class="text usuario-logado-text">
+            Olá, {{authService.getUsuarioLogado().nomeUsuario}}!
+          </div>
+          <a (click)='sair()' class="btn btnMore"><i class="fas fa-sign-out-alt"></i> Sair</a>
+      </div>
+
+        <!-- Implementação futura -->
+        <!-- <div class="collapse navbar-collapse" id="conteudoNavbarSuportado" *ngIf='authService.logado()'>
+
+          <ul class="navbar-nav ml-auto mr-5">
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <p class="dropdown-item" href=""><i class="far fa-user"></i>
+              </a>
+
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <p class="dropdown-item" href=""><i class="far fa-user"></i> {{nomeUsuario}}</p>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" routerLink="/home"><i class="fas fa-home"></i> Início</a>
+                <a class="dropdown-item" routerLink='/carrinho'><i class="far fa-newspaper"></i> Carrinho</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item"><i class="far fa-edit"></i> Editar Perfil</a>
+                <a (click)='sair()' class="dropdown-item"><i class="fas fa-sign-out-alt"></i> Sair</a>
+
+              </div>
+
+            </li>
+
+          </ul>
+
+        </div> -->
+
+      </div>
+
+    </div>
+  </nav>
+</div>
+<!--/NavBar-->
+
+<!-- Direcionamento para Componente com Modal de Login e Cadastro -->
+
+<app-login></app-login>
+
+<!-- /Direcionamento para Componente com Modal de Login e Cadastro -->

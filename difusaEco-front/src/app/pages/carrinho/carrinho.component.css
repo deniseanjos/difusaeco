@@ -1,0 +1,49 @@
+.title {
+  font-family: Amatic SC;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 6rem;
+  color: #540388;
+}
+
+.totals{
+  background: white;
+  border-radius: 9px;
+}
+
+.btn {
+  text-align: center;
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: 0%;
+  background: #27AE60;
+  border-radius: 6px;
+  }
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding-bottom: 15px;
+}
+
+.green-bar {
+  width: 100%;
+  padding: 1.5rem;
+  background: #27AE60;
+  border-radius: 20px 0px
+}
+
+.card {
+  border-radius: 20px 0px;
+}
+
+.img-carrinho-vazio{
+  width: 35%;
+}
+
+
+
+
+

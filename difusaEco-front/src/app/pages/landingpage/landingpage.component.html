@@ -1,0 +1,80 @@
+<div class="landing container">
+
+  <!---->
+  <section>
+    <div class="row mt-3">
+      <div class="col-lg-5 col-md-5 col-sm-12 texto-container">
+        <div class=" text-justify ml-4">
+          <div class="title text-center">Bem vinde!</div>
+          <div class="text-center">
+            <div class="description">O projeto nasceu com o propósito de
+              dispor produtos ecológicos adquiridos
+              de fornecedores locais em um só
+              lugar, fomentando o trabalho e
+              economia de pequenos produtores e
+              incentivando o consumo consciente...</div>
+          </div>
+          <div class=" btn-container mt-5 d-flex justify-content-center">
+            <button type="button" class="btn btnHome" routerLink='/sobre-projeto'>Saiba mais</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-7 col-md-7 col-sm-12 p-3">
+        <div>
+          <img class="img-home" src="../../../assets/img/earth.svg">
+        </div>
+      </div>
+    </div>
+
+  </section>
+  <!--/-->
+
+  <!---->
+
+  <section class="description">
+    <div class="mt-5 mb-5 text-center text-justify">
+
+      <div>Nossos produtos foram cuidadosamente selecionados, visando atender as demandas de nossos clientes. Pensando nisso, temos um grande rigor na hora de escolher nossas fornecedores que utilizem apenas matérias-primas renováveis, ajudando dessa forma a minimizar os impactos ambientais que o ser humano causa no planeta</div>
+      <div>Abaixo você poderá conferir os produtos com mais destaque em nossa loja!!!</div>
+    </div>
+
+  </section>
+  <!--/-->
+
+
+  <!--Card e carrossel-->
+
+  <div class="container">
+
+    <app-product-owl-carousel></app-product-owl-carousel>
+
+    <div class=" btn-container mt-5 d-flex justify-content-center">
+      <button type="button" class="btn btnHome" routerLink='/produtos'>Todos Produtos</button>
+
+    </div>
+
+  </div>
+
+  <!--/Card e carrossel-->
+
+  <!-- OwlCarousel - Sobre nós - Responsivo  -->
+  <div *ngIf="gitUsersLoaded" class="container mb-5">
+    <hr class="mb-5">
+    <div class="text-center mb-5 title">Equipe</div>
+
+  <div class="container">
+
+    <owl-carousel-o [options]="customOptionsCardMembers">
+        <ng-template carouselSlide *ngFor="let member of members">
+          <div class="slide container">
+            <app-card-member [member]="member"></app-card-member>
+          </div>
+        </ng-template>
+
+      </owl-carousel-o>
+
+    </div>
+
+    <!--/Sobrenos-->
+
+</div>

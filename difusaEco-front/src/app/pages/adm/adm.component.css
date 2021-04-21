@@ -1,0 +1,49 @@
+.title {
+  font-family: Amatic SC;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 4rem;
+  padding-top: 10px;
+  color: #540388;
+}
+
+.erase{
+    color: #540388;
+}
+
+.action-icon{
+    cursor: pointer;
+}
+
+.table{
+    border: 1px solid lightgrey;
+}
+
+/* .btn {
+    text-align: center;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
+    background: #27AE60;
+    border-radius: 6px;
+    } */
+
+.th{
+    text-align: center;
+}
+
+.th2{
+    text-align: left;
+}
+
+.btnD{
+    text-align: center;
+    left: 0%;
+    right: 0%;
+    top: 5%;
+    bottom: 5%;
+    background: #c02b2b;
+    border-radius: 6px;
+}
+

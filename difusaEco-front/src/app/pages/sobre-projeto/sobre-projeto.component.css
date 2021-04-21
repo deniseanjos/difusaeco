@@ -1,0 +1,42 @@
+/* .text-about{
+  font-family: Amatic SC;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 70px;
+  line-height: 50px;
+  letter-spacing: -0.015em;
+  font-size: 60px;
+}
+
+.text-thanks{
+  font-family: Amatic SC;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 100px;
+  line-height: 50px;
+  letter-spacing: -0.015em;
+  font-size: 60px;
+} */
+
+.teste {
+  background-image: url("../../../assets/img/circle-group.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0.4;
+}
+
+.img-section2 {
+  background-image: url("../../../assets/img/folhas.svg");
+  background-position: left;
+  background-size: 50%;
+  background-repeat: no-repeat;
+}
+
+

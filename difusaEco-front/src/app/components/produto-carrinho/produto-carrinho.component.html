@@ -1,0 +1,66 @@
+<div class="product-card">
+
+  <div class="row">
+    <!--Imagem-->
+    <div class="col-md-3 col-12">
+      <div class="p-2 img-container">
+        <img class="w-100 product-image p-2" src="{{produtoCarrinho?.produto?.imagem}}">
+      </div>
+    </div>
+    <!--END Imagem-->
+
+    <!--Detalhes Produto-->
+    <div class="col-md-4 col-12 product-details">
+      <!--Nome-->
+      <div class="product-name-container">
+        <div class="product-name font-weight-bold">{{produtoCarrinho?.produto?.nomeProduto}}</div>
+      </div>
+      <!--END Nome-->
+
+      <!--Descrição-->
+      <div class="product-description-container">
+        <div class="product-description">{{produtoCarrinho?.produto?.descricao}}</div>
+      </div>
+      <!--END Descrição-->
+
+      <!--Preço-->
+      <div>
+        <div>{{produtoCarrinho?.produto?.preco |currency:"BRL"}}</div>
+      </div>
+      <!--END Preço-->
+    </div>
+    <!--END Detalhes Produto-->
+
+    <!--Preço-->
+    <div class="col-md-5 col-12 d-flex product-values">
+      <!--Quantidade-->
+      <div class="qtd-container d-flex">
+        <button class="btn-qtd btn" id="plus" type="button" (click)="subtrair()" >
+          <i class="fas fa-minus"></i>
+        </button>
+          <div class="pr-2 pl-2" type="number" min="1"> {{produtoCarrinho?.qtd}} </div>
+        <button class="btn-qtd btn" id="minus" type="button" (click)="adicionar()" >
+          <i class="fas fa-plus"></i>
+        </button>
+      </div>
+      <!--END Quantidade-->
+
+      <!--Valor Total Produto-->
+      <div class="valor-total-produto d-flex">
+        <p>{{produtoCarrinho?.totalProduto |currency:"BRL"}} </p>
+      </div>
+      <!--Valor Total Produto-->
+
+    </div>
+
+
+  </div>
+
+
+  <!--Remover produto do carrinho-->
+  <div class="remove-product-container">
+    <div>
+      <i class="fas icon-remove fa-trash-alt" (click)="removerProduto(produtoCarrinho.produto)"></i>
+    </div>
+  </div>
+</div>

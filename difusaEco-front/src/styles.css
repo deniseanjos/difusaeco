@@ -1,0 +1,51 @@
+
+:root {
+
+}
+
+html, body, #root {
+  height: 100vh;
+}
+
+body,
+input,
+button,
+textarea {
+    font-size: 1.6rem;
+    font-family: Nunito;
+}
+
+.description-projeto {
+  font-size: 1.3rem;
+  font-family: Nunito;
+}
+
+.description {
+  font-size: 1rem;
+  font-family: Nunito;
+}
+
+.description p {
+  font-size: 1rem;
+  font-family: Nunito;
+}
+
+.member-name {
+  font-size: 1rem;
+  font-family: Nunito;
+}
+
+h1, h2, h3, h4, h5, h6 {
+
+}
+
+.title {
+  font-family: Amatic SC;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 4rem;
+  padding-top: 10px;
+  color: #540388;
+}
+
+

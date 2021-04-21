@@ -1,0 +1,97 @@
+<!-- Modal de Login e Cadastro -->
+
+<div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="ModalLogin" aria-hidden="true">
+    <div class="modal-dialog  modal-xl" role="document">
+        <div class="modal-content">
+
+            <div class="row justify-content-end">
+                <div class="col-md-1 d-flex justify-content-center p-2">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="row d-flex justify-content-center">
+                <img src="https://i.imgur.com/9ud7sxi.png" alt="Logo DifusaEco">
+
+            </div>
+
+            <form class="row d-flex justify-content-center needs-validation" novalidate>
+
+                <div class="col-md-6 position-relative">
+
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="ModalNovoCadastro">Cadastre-se</h5>
+                    </div>
+
+                    <div class="modal-body" novalidate>
+                        <div class="form-group">
+                            <input [(ngModel)]='user.nomeUsuario' (keyup)="validaNome($event)" class="form-control" type="text" name="nome" id="nome"
+                                placeholder="Informe seu nome aqui" required>
+                            <div class="invalid-feedback">Favor informar no mínimo 3 caracteres.</div>
+                        </div>
+
+                        <div class="form-group">
+                            <input [(ngModel)]='user.email' (keyup)="validaEmail($event)" class="form-control" type="email" name="usuario"
+                                id="usuario" placeholder="Digite seu email. Exemplo: email@email.com" required>
+                                <div class="invalid-feedback">Por favor, verifique o e-mail informado.</div>
+                        </div>
+
+                        <div class="form-group">
+                            <input [(ngModel)]='user.senha' (keyup)="validaSenha($event)" class="form-control" type="password" name="senha"
+                                id="senha" placeholder="Digite sua senha">
+                                <div class="invalid-feedback">A senha deve conter, no mínimo, 5 caracteres.</div>
+                        </div>
+
+                        <div class="form-group">
+                            <input (input)="confirmSenha($event)" class="form-control" type="password" name="senha"
+                                id="senhaConfirmar" placeholder="Confirme sua senha">
+                                <div class="invalid-feedback">As senhas devem ser iguais.</div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-success" (click)="cadastrar()">Cadastrar</button>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+
+                    <div class="modal-header">
+
+                        <h5 class="modal-title" id="ModalNovoCadastro">Login</h5>
+
+
+                    </div>
+
+                    <div class="modal-body">
+
+                        <form>
+                            <div class="form-group">
+                                <input [(ngModel)]="userLogin.email" type="email" class="form-control" name="email"
+                                    id="email" placeholder="Digite seu email" (keyup)="validaEmail($event)">
+                                    <div class="invalid-feedback">Por favor, verifique o e-mail informado.</div>
+                            </div>
+                            <div class="form-group">
+                                <input [(ngModel)]="userLogin.senha" type="password" class="form-control" id="senha"
+                                    name="senha" placeholder="Digite sua senha">
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="modal-footer">
+
+                        <button type="button" class="btn btn-primary entrar" (click)="logar()">Entrar</button>
+
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+</div>
